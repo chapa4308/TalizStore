@@ -24,52 +24,72 @@
   </script>
   <style>
     html { scroll-behavior: smooth; }
-    body { background-color: #0b0b0f; font-family: system-ui, sans-serif; color: #fef2f2; }
-    .hero { min-height: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 4rem 1rem; }
-    .hero h1 { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; }
+    body { background-color: #0b0b0f; font-family: system-ui, sans-serif; color: #fef2f2; margin:0; }
+    
+    /* HERO */
+    .hero { min-height: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 4rem 1rem; position: relative; overflow: hidden; }
+    .hero-glow { position: absolute; inset:0; background: radial-gradient(circle at 50% 50%, rgba(139,0,0,0.15), transparent 70%); animation: glow-pulse 8s ease-in-out infinite; }
+    @keyframes glow-pulse { 0%,100% {opacity:1;} 50%{opacity:0.7;} }
+    .hero h1 { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; color: #fff; }
     .hero p { font-size: 1.25rem; color: #fecaca; margin-bottom: 2rem; max-width: 600px; }
-    .product-card { max-width: 400px; margin: 2rem auto; background: radial-gradient(circle at top, #450a0a, #020617); border: 1px solid rgba(248,113,113,0.4); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s ease; }
-    .product-card:hover { transform: translateY(-5px); }
+
+    /* PRODUCT CARD */
+    .products-section { max-width: 800px; margin: 0 auto; padding: 2rem 1rem; display: flex; flex-direction: column; align-items: center; gap: 2rem; }
+    .product-card { width: 100%; max-width: 400px; background: radial-gradient(circle at top, #450a0a, #020617); border: 1px solid rgba(248,113,113,0.4); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(255,0,0,0.3); }
     .product-image img { width: 100%; display: block; transition: transform 0.3s ease; }
     .product-card:hover .product-image img { transform: scale(1.05); }
     .product-body { padding: 1rem; display: flex; flex-direction: column; gap: 0.5rem; }
-    .product-title { font-size: 1.5rem; font-weight: 600; }
+    .product-title { font-size: 1.5rem; font-weight: 600; color: #fff; }
     .product-description { font-size: 1rem; color: #fecaca; line-height: 1.4; }
-    .product-price { font-size: 1.2rem; font-weight: 600; margin-top: 0.5rem; }
-    .btn-cta { display: inline-block; text-align: center; padding: 0.75rem 1.5rem; border-radius: 999px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #8b0000 0%, #b11226 100%); box-shadow: 0 0 30px rgba(139,0,0,0.4),0 0 60px rgba(139,0,0,0.2); transition: transform 0.3s ease, box-shadow 0.3s ease; text-decoration: none; }
+    .product-price { font-size: 1.2rem; font-weight: 600; margin-top: 0.5rem; color:#fff; }
+    .btn-cta { display: inline-block; text-align: center; padding: 0.75rem 1.5rem; border-radius: 999px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #8b0000 0%, #b11226 100%); box-shadow: 0 0 30px rgba(139,0,0,0.4),0 0 60px rgba(139,0,0,0.2); transition: transform 0.3s ease, box-shadow 0.3s ease; text-decoration: none; text-transform: uppercase; }
     .btn-cta:hover { transform: scale(1.05); box-shadow: 0 0 40px rgba(139,0,0,0.5),0 0 80px rgba(139,0,0,0.25); }
+
+    /* FOOTER */
+    footer { text-align: center; padding: 2rem 1rem; border-top: 1px solid rgba(248,113,113,0.4); color: #fecaca; font-size: 0.85rem; }
+
+    /* Fade-in animation */
     .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
-    footer { text-align: center; padding: 2rem 1rem; border-top: 1px solid rgba(248,113,113,0.4); color: #fecaca; font-size: 0.85rem; }
   </style>
 </head>
 <body>
 
   <!-- HERO -->
   <section class="hero fade-in">
+    <div class="hero-glow"></div>
     <h1>TALIZ STORE</h1>
-    <p>TALIZ STORE — бренд спортивной одежды с национально-кавказской символикой. 
-    Стильные, качественные и узнаваемые вещи для активного образа жизни.</p>
+    <p>
+      Всем привет! Мне пришла идея создать собственный бренд спортивной одежды, ориентированный на кавказскую аудиторию. 
+      Я решил заняться этим, потому что в Украине практически нет качественной спортивной одежды с национально-кавказской символикой. 
+      Хочется сделать стильный, достойный и узнаваемый продукт для своих. 
+      Поддержите идею реакциями — чем их больше, тем быстрее запустим продажи! 🔥⛰️
+      Делаем одежду под разные национальности.
+    </p>
+    <a href="https://t.me/suckloui" target="_blank" class="btn-cta fade-in">Связаться в Telegram</a>
   </section>
 
   <!-- PRODUCT -->
-  <section class="product-card fade-in">
-    <div class="product-image">
-      <img src="images/product1.jpeg" alt="Спортивная футболка TALIZ">
-    </div>
-    <div class="product-body">
-      <h2 class="product-title">Спортивная футболка TALIZ</h2>
-      <p class="product-description">
-        Футболка для активного образа жизни: дышащий материал, удобный крой, минималистичный стиль.
-      </p>
-      <div class="product-price">2000 UAH</div>
-      <a href="https://t.me/suckloui" target="_blank" class="btn-cta">Купить в Telegram</a>
+  <section class="products-section fade-in">
+    <div class="product-card fade-in">
+      <div class="product-image">
+        <img src="images/product1.jpeg" alt="Спортивная футболка TALIZ">
+      </div>
+      <div class="product-body">
+        <h2 class="product-title">Спортивная футболка TALIZ</h2>
+        <p class="product-description">
+          Футболка для активного образа жизни: дышащий материал, удобный крой, минималистичный стиль.
+        </p>
+        <div class="product-price">809 UAH</div>
+        <a href="https://t.me/suckloui" target="_blank" class="btn-cta">Купить в Telegram</a>
+      </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="fade-in">
-    Telegram: <a href="https://t.me/suckloui" target="_blank" class="text-accent-bright hover:underline">@myusername</a><br>
+    Telegram: <a href="https://t.me/suckloui" target="_blank" class="text-accent-bright hover:underline">@suckloui</a><br>
     © 2026 TALIZ STORE
   </footer>
 
@@ -88,7 +108,7 @@
       fadeEls.forEach(el => observer.observe(el));
 
       // Hero видим сразу
-      document.querySelectorAll('.hero.fade-in').forEach(el => el.classList.add('visible'));
+      document.querySelectorAll('.hero .fade-in').forEach(el => el.classList.add('visible'));
     })();
   </script>
 
