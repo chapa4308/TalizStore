@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>TALIZ STORE — Спортивная одежда</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TALIZ STORE — Бренд спортивной одежды</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
 tailwind.config = {
@@ -14,67 +14,82 @@ tailwind.config = {
         accent: '#8b0000',
         'accent-bright': '#b11226',
         text-muted: '#fecaca',
-        glow: '#ff2d2d',
       },
     },
   },
 };
 </script>
 <style>
-body { background-color:#0b0b0f; font-family:system-ui,sans-serif; color:#fef2f2; margin:0; }
+body { margin:0; font-family:system-ui,sans-serif; background:#0b0b0f; color:#fef2f2; }
 * { box-sizing:border-box; }
 
 .hero {
-  min-height:70vh;
-  display:flex; flex-direction:column; justify-content:center; align-items:center;
+  min-height:70vh; display:flex; flex-direction:column; justify-content:center; align-items:center;
   text-align:center; padding:4rem 1rem;
   background:radial-gradient(circle at center, rgba(139,0,0,0.2), #0b0b0f);
   position:relative; overflow:hidden;
 }
-.hero h1 { font-size:3rem; font-weight:700; margin-bottom:1rem; background: linear-gradient(90deg, #ff2d2d, #b11226); -webkit-background-clip: text; color: transparent; }
-.hero p { font-size:1.25rem; color:#fecaca; max-width:600px; margin-bottom:2rem; }
+.hero h1 {
+  font-size:3rem; font-weight:700; margin-bottom:1rem;
+  background: linear-gradient(90deg,#ff2d2d,#b11226); -webkit-background-clip:text; color:transparent;
+}
+.hero p { font-size:1.25rem; color:#fecaca; max-width:700px; margin-bottom:2rem; }
 
-.products-section { max-width:1120px; margin:3rem auto; padding:0 1rem; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; }
+.about {
+  max-width:800px; margin:3rem auto; text-align:center; padding:0 1rem;
+}
+.about p { font-size:1.1rem; color:#fecaca; line-height:1.6; }
+
+.products-section {
+  max-width:1120px; margin:3rem auto; padding:0 1rem; display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem;
+}
 
 .product-card {
   background: radial-gradient(circle at top left, #450a0a, #020617);
   border:1px solid rgba(248,113,113,0.4);
-  border-radius:20px;
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
+  border-radius:20px; overflow:hidden; display:flex; flex-direction:column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.product-card:hover { transform: translateY(-5px); box-shadow:0 8px 25px rgba(255,45,45,0.3); }
-.product-image img { width:100%; display:block; transition: transform 0.3s ease; }
-.product-card:hover .product-image img { transform: scale(1.05); }
+.product-card:hover { transform:translateY(-5px); box-shadow:0 8px 25px rgba(255,45,45,0.3); }
+.product-image img { width:100%; display:block; transition:transform 0.3s ease; }
+.product-card:hover .product-image img { transform:scale(1.05); }
 .product-body { padding:1rem; display:flex; flex-direction:column; gap:0.5rem; }
-.product-title { font-size:1.5rem; font-weight:700; background: linear-gradient(90deg, #ff2d2d, #b11226); -webkit-background-clip: text; color: transparent; }
+.product-title {
+  font-size:1.5rem; font-weight:700;
+  background: linear-gradient(90deg,#ff2d2d,#b11226); -webkit-background-clip:text; color:transparent;
+}
 .product-description { color:#fecaca; font-size:1rem; line-height:1.4; }
 .product-price { font-weight:700; font-size:1.2rem; margin-top:0.5rem; }
 .btn-cta {
-  margin-top:0.5rem;
-  display:inline-block; text-align:center; padding:0.75rem 1.5rem; border-radius:999px;
-  font-weight:600; color:#fff; background:linear-gradient(135deg,#8b0000 0%,#b11226 100%);
-  box-shadow:0 0 25px rgba(139,0,0,0.4);
-  text-decoration:none; transition:transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top:0.5rem; display:inline-block; text-align:center; padding:0.75rem 1.5rem;
+  border-radius:999px; font-weight:600; color:#fff; background:linear-gradient(135deg,#8b0000 0%,#b11226 100%);
+  box-shadow:0 0 25px rgba(139,0,0,0.4); text-decoration:none;
+  transition:transform 0.3s ease, box-shadow 0.3s ease;
 }
 .btn-cta:hover { transform:scale(1.05); box-shadow:0 0 40px rgba(139,0,0,0.5); }
-.fade-in { opacity:0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-.fade-in.visible { opacity:1; transform: translateY(0); }
+
+.fade-in { opacity:0; transform:translateY(20px); transition:opacity 0.8s ease-out, transform 0.8s ease-out; }
+.fade-in.visible { opacity:1; transform:translateY(0); }
 
 footer { text-align:center; padding:2rem 1rem; border-top:1px solid rgba(248,113,113,0.4); color:#fecaca; font-size:0.85rem; }
-
 </style>
 </head>
 <body>
 
+<!-- HERO -->
 <section class="hero fade-in">
   <h1>TALIZ STORE</h1>
-  <p>TALIZ STORE — бренд спортивной одежды с национально-кавказской символикой. 
-    Стильные, качественные и узнаваемые вещи для активного образа жизни.</p>
+  <p>Бренд спортивной одежды с национально-кавказской символикой. Стильные, качественные и узнаваемые вещи для активного образа жизни.</p>
 </section>
 
+<!-- ABOUT -->
+<section class="about fade-in">
+  <p>Всем привет! Мне пришла идея создать собственный бренд спортивной одежды, ориентированный на кавказскую аудиторию.  
+В Украине практически нет качественной спортивной одежды с национально-кавказской символикой. Хочется сделать стильный, достойный и узнаваемый продукт для своих. Поддержите идею реакциями — чем их больше, тем быстрее запустим продажи! 🔥⛰️</p>
+</section>
+
+<!-- PRODUCTS -->
 <section class="products-section fade-in">
   <div class="product-card">
     <div class="product-image">
@@ -82,24 +97,23 @@ footer { text-align:center; padding:2rem 1rem; border-top:1px solid rgba(248,113
     </div>
     <div class="product-body">
       <h2 class="product-title">Спортивная футболка TALIZ</h2>
-      <p class="product-description">
-        Футболка для активного образа жизни: дышащий материал, удобный крой, минималистичный стиль.
-      </p>
+      <p class="product-description">Футболка для активного образа жизни: дышащий материал, удобный крой, минималистичный стиль.</p>
       <div class="product-price">2000 UAH</div>
       <a href="https://t.me/suckloui" target="_blank" class="btn-cta">Купить в Telegram</a>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer class="fade-in">
 Telegram: <a href="https://t.me/suckloui" target="_blank" class="text-accent-bright hover:underline">@myusername</a><br>
 © 2026 TALIZ STORE
 </footer>
 
 <script>
-(function() {
+(function(){
   const fadeEls = document.querySelectorAll('.fade-in');
-  const observer = new IntersectionObserver(function(entries) {
+  const observer = new IntersectionObserver(function(entries){
     entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
   }, { rootMargin:'0px 0px -60px 0px', threshold:0.1 });
   fadeEls.forEach(el => observer.observe(el));
